@@ -4,7 +4,10 @@ const TaskList = ({ tasks, onToggleTask, onDeleteTask }) => {
   if (tasks.length === 0) {
     return (
       <div className="task-list empty">
-        <p>📝 No hay tareas con este filtro. ¡Agrega una nueva!</p>
+        <p>💎 ¡Oh no! No hay tareas con este filtro.</p>
+        <p style={{ marginTop: '1rem', fontSize: '1rem', opacity: 0.7 }}>
+          Agrega una tarea para unirte a los {Math.floor(Math.random() * 50) + 50} usuarios productivos
+        </p>
       </div>
     )
   }

@@ -1,152 +1,342 @@
-/* Estilos generales */
+/* ============================================
+   ESTÉTICA COQUETTE - Pasteles elegantes pero juguetones
+   Generando FOMO (Fear Of Missing Out)
+   ============================================ */
+
+/* Paleta coquette */
+:root {
+  --coquette-pink: #FFD6E7;
+  --coquette-lavender: #E6D4FF;
+  --coquette-sky: #D4F0FF;
+  --coquette-cream: #FFF4D4;
+  --coquette-mint: #D4FFE6;
+  --coquette-accent: #FF85A1;
+  --coquette-accent-dark: #FF6B8B;
+  --coquette-text: #7A6A76;
+  --coquette-text-light: #A895A3;
+  --coquette-border: rgba(255, 214, 231, 0.3);
+  --coquette-shadow: rgba(255, 133, 161, 0.15);
+  --coquette-glow: rgba(255, 133, 161, 0.3);
+}
+
+/* Estilos generales - Fondo de ensueño coquette */
 .App {
   text-align: center;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+  font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
   margin: 0;
   padding: 0;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: #333;
+  background: linear-gradient(135deg, var(--coquette-pink) 0%, var(--coquette-lavender) 50%, var(--coquette-sky) 100%);
+  color: var(--coquette-text);
+  position: relative;
+  overflow-x: hidden;
 }
 
-/* Header */
+/* Efecto de brillo sutil en el fondo */
+.App::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 20% 80%, var(--coquette-glow) 0%, transparent 50%),
+              radial-gradient(circle at 80% 20%, rgba(230, 212, 255, 0.3) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Header con efecto exclusivo */
 .App-header {
-  background: white;
-  padding: 2rem 1rem;
-  border-radius: 0 0 20px 20px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  padding: 2rem 1rem 1.5rem;
+  border-radius: 0 0 30px 30px;
+  box-shadow: 0 8px 32px var(--coquette-shadow);
   width: 100%;
+  position: relative;
+  z-index: 1;
+  border-bottom: 3px solid var(--coquette-border);
 }
 
 .App-header h1 {
-  color: #4a5568;
+  color: transparent;
   margin: 0 0 0.5rem 0;
-  font-size: 2.5rem;
+  font-size: 2.8rem;
   font-weight: 800;
-  background: linear-gradient(90deg, #667eea, #764ba2);
+  background: linear-gradient(90deg, #FF85A1, #E6D4FF, #D4F0FF);
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
   background-clip: text;
+  text-shadow: 0 4px 8px rgba(0,0,0,0.05);
+  letter-spacing: -0.5px;
 }
 
 .subtitle {
-  color: #718096;
+  color: var(--coquette-text-light);
   font-size: 1.1rem;
   margin: 0;
   font-style: italic;
+  font-weight: 300;
 }
 
-/* Main content */
+/* Badge Early Adopter - Elemento de FOMO */
+.early-adopter-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, #FF85A1, #FF6B8B);
+  color: white;
+  padding: 0.5rem 1.2rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-top: 0.75rem;
+  box-shadow: 0 4px 12px rgba(255, 107, 139, 0.3);
+  animation: pulse 2s infinite;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+/* Main content - Con efecto de vidrio */
 .App-main {
   flex: 1;
-  max-width: 800px;
+  max-width: 900px;
   margin: 2rem auto;
-  padding: 0 1rem;
+  padding: 0 1.5rem;
   width: 100%;
+  position: relative;
+  z-index: 1;
 }
 
-/* Stats */
+/* Stats con diseño coquette */
 .stats {
   display: flex;
   justify-content: center;
-  gap: 2rem;
-  margin-bottom: 2rem;
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
   flex-wrap: wrap;
 }
 
 .stat {
   background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
   padding: 1.5rem 2rem;
-  border-radius: 12px;
-  box-shadow: 0 6px 12px rgba(0,0,0,0.08);
-  min-width: 120px;
-  transition: transform 0.2s;
+  border-radius: 20px;
+  box-shadow: 0 8px 24px var(--coquette-shadow);
+  min-width: 130px;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  border: 2px solid transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+.stat::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--coquette-accent), var(--coquette-lavender));
 }
 
 .stat:hover {
-  transform: translateY(-3px);
+  transform: translateY(-8px) scale(1.03);
+  border-color: var(--coquette-border);
+  box-shadow: 0 16px 32px var(--coquette-shadow);
 }
 
 .stat-number {
   display: block;
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: #4a5568;
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: var(--coquette-accent);
   line-height: 1;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.05);
 }
 
 .stat-label {
   display: block;
-  font-size: 0.9rem;
-  color: #718096;
+  font-size: 0.85rem;
+  color: var(--coquette-text-light);
   text-transform: uppercase;
-  letter-spacing: 1px;
-  margin-top: 0.5rem;
+  letter-spacing: 2px;
+  margin-top: 0.75rem;
+  font-weight: 600;
 }
 
-/* Add task form */
+/* FOMO Banner - "No te quedes fuera" */
+.fomo-banner {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 244, 212, 0.95));
+  backdrop-filter: blur(10px);
+  border: 2px dashed var(--coquette-accent);
+  border-radius: 20px;
+  padding: 1.2rem;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  box-shadow: 0 8px 24px var(--coquette-shadow);
+  animation: borderGlow 3s infinite;
+}
+
+@keyframes borderGlow {
+  0%, 100% { border-color: var(--coquette-accent); }
+  50% { border-color: var(--coquette-lavender); }
+}
+
+.fomo-banner-content {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex: 1;
+}
+
+.fomo-banner-icon {
+  font-size: 1.8rem;
+}
+
+.fomo-banner-text {
+  text-align: left;
+  flex: 1;
+}
+
+.fomo-banner-text h4 {
+  margin: 0 0 0.25rem 0;
+  color: var(--coquette-accent-dark);
+  font-size: 1.1rem;
+}
+
+.fomo-banner-text p {
+  margin: 0;
+  color: var(--coquette-text);
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.fomo-banner-count {
+  background: var(--coquette-accent);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 15px;
+  font-weight: 700;
+  font-size: 1.2rem;
+  min-width: 60px;
+  box-shadow: 0 4px 12px rgba(255, 107, 139, 0.3);
+}
+
+/* Add task form - Con toque coquette */
 .add-task-form {
   display: flex;
   gap: 1rem;
-  margin-bottom: 2rem;
-  background: white;
-  padding: 1.5rem;
-  border-radius: 12px;
-  box-shadow: 0 6px 12px rgba(0,0,0,0.08);
+  margin-bottom: 2.5rem;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 1.8rem;
+  border-radius: 25px;
+  box-shadow: 0 12px 32px var(--coquette-shadow);
+  border: 2px solid rgba(255, 214, 231, 0.5);
+  transition: all 0.3s;
+}
+
+.add-task-form:focus-within {
+  border-color: var(--coquette-accent);
+  box-shadow: 0 16px 40px rgba(255, 133, 161, 0.25);
 }
 
 .task-input {
   flex: 1;
-  padding: 1rem 1.5rem;
-  border: 2px solid #e2e8f0;
-  border-radius: 8px;
-  font-size: 1rem;
-  transition: border-color 0.2s;
+  padding: 1.2rem 1.8rem;
+  border: 2px solid var(--coquette-border);
+  border-radius: 15px;
+  font-size: 1.1rem;
+  transition: all 0.3s;
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--coquette-text);
+  font-family: inherit;
 }
 
 .task-input:focus {
   outline: none;
-  border-color: #667eea;
-  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+  border-color: var(--coquette-accent);
+  box-shadow: 0 0 0 4px rgba(255, 133, 161, 0.15);
+  background: white;
+}
+
+.task-input::placeholder {
+  color: var(--coquette-text-light);
+  opacity: 0.6;
 }
 
 .add-btn {
-  padding: 1rem 2rem;
-  background: linear-gradient(90deg, #667eea, #764ba2);
+  padding: 1.2rem 2.5rem;
+  background: linear-gradient(135deg, var(--coquette-accent), var(--coquette-accent-dark));
   color: white;
   border: none;
-  border-radius: 8px;
-  font-size: 1rem;
-  font-weight: 600;
+  border-radius: 15px;
+  font-size: 1.1rem;
+  font-weight: 700;
   cursor: pointer;
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  letter-spacing: 0.5px;
+  position: relative;
+  overflow: hidden;
+}
+
+.add-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.6s;
 }
 
 .add-btn:hover:not(:disabled) {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 12px 24px rgba(255, 107, 139, 0.4);
+}
+
+.add-btn:hover:not(:disabled)::before {
+  left: 100%;
 }
 
 .add-btn:disabled {
   opacity: 0.5;
   cursor: not-allowed;
+  transform: none !important;
 }
 
-/* Filter */
+/* Filter - Estilo coquette */
 .filter-tasks {
-  background: white;
-  padding: 1.5rem;
-  border-radius: 12px;
-  box-shadow: 0 6px 12px rgba(0,0,0,0.08);
-  margin-bottom: 2rem;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 1.8rem;
+  border-radius: 25px;
+  box-shadow: 0 8px 24px var(--coquette-shadow);
+  margin-bottom: 2.5rem;
+  border: 2px solid rgba(255, 214, 231, 0.5);
 }
 
 .filter-label {
-  margin: 0 0 1rem 0;
-  color: #4a5568;
-  font-weight: 600;
+  margin: 0 0 1.2rem 0;
+  color: var(--coquette-accent-dark);
+  font-weight: 700;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
 }
 
 .filter-buttons {
@@ -156,50 +346,61 @@
 }
 
 .filter-btn {
-  padding: 0.75rem 1.5rem;
-  background: #edf2f7;
-  border: none;
-  border-radius: 6px;
-  color: #4a5568;
-  font-size: 0.9rem;
+  padding: 0.9rem 2rem;
+  background: rgba(255, 214, 231, 0.3);
+  border: 2px solid transparent;
+  border-radius: 12px;
+  color: var(--coquette-text);
+  font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.2s;
+  transition: all 0.3s;
+  flex: 1;
+  max-width: 200px;
 }
 
 .filter-btn:hover {
-  background: #e2e8f0;
+  background: rgba(255, 214, 231, 0.5);
+  transform: translateY(-2px);
 }
 
 .filter-btn.active {
-  background: linear-gradient(90deg, #667eea, #764ba2);
+  background: linear-gradient(135deg, var(--coquette-accent), var(--coquette-lavender));
   color: white;
-  box-shadow: 0 4px 8px rgba(102, 126, 234, 0.3);
+  border-color: white;
+  box-shadow: 0 6px 16px var(--coquette-shadow);
+  transform: translateY(-2px);
 }
 
-/* Task list */
+/* Task list - Diseño exclusivo */
 .task-list {
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 6px 12px rgba(0,0,0,0.08);
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 25px;
+  box-shadow: 0 12px 32px var(--coquette-shadow);
   overflow: hidden;
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
+  border: 2px solid rgba(255, 214, 231, 0.5);
 }
 
 .task-list.empty {
-  padding: 3rem;
+  padding: 4rem 2rem;
   text-align: center;
-  color: #718096;
+  color: var(--coquette-text-light);
+  font-size: 1.2rem;
+  background: rgba(255, 255, 255, 0.8);
 }
 
-/* Task item */
+/* Task item - Con efectos coquette */
 .task-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.5rem;
-  border-bottom: 1px solid #e2e8f0;
-  transition: background-color 0.2s;
+  padding: 1.8rem;
+  border-bottom: 2px solid var(--coquette-border);
+  transition: all 0.3s;
+  position: relative;
+  background: rgba(255, 255, 255, 0.5);
 }
 
 .task-item:last-child {
@@ -207,80 +408,182 @@
 }
 
 .task-item:hover {
-  background-color: #f7fafc;
+  background: rgba(255, 244, 212, 0.3);
+  padding-left: 2.2rem;
 }
 
 .task-item.completed {
-  background-color: #f0fff4;
+  background: rgba(212, 255, 230, 0.3);
 }
 
 .task-item.completed .task-text {
   text-decoration: line-through;
-  color: #9ae6b4;
+  color: #8AC6A9;
+  opacity: 0.7;
 }
 
 .task-content {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 1.5rem;
   flex: 1;
 }
 
 .toggle-btn {
   background: none;
   border: none;
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   cursor: pointer;
-  padding: 0.25rem;
-  border-radius: 4px;
-  transition: transform 0.2s;
-}
-
-.toggle-btn:hover {
-  transform: scale(1.2);
-}
-
-.task-text {
-  font-size: 1.1rem;
-  color: #2d3748;
-  text-align: left;
-  flex: 1;
-}
-
-.delete-btn {
-  background: #fed7d7;
-  border: none;
-  width: 40px;
-  height: 40px;
-  border-radius: 8px;
-  font-size: 1.2rem;
-  cursor: pointer;
-  transition: all 0.2s;
+  padding: 0.5rem;
+  border-radius: 10px;
+  transition: all 0.3s;
+  width: 50px;
+  height: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
+  background: rgba(255, 255, 255, 0.8);
+  border: 2px solid var(--coquette-border);
+}
+
+.toggle-btn:hover {
+  transform: scale(1.2) rotate(10deg);
+  background: var(--coquette-cream);
+  border-color: var(--coquette-accent);
+}
+
+.task-text {
+  font-size: 1.2rem;
+  color: var(--coquette-text);
+  text-align: left;
+  flex: 1;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.delete-btn {
+  background: rgba(255, 214, 231, 0.8);
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  font-size: 1.4rem;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--coquette-accent);
 }
 
 .delete-btn:hover {
-  background: #fc8181;
+  background: var(--coquette-accent);
   color: white;
-  transform: scale(1.1);
+  transform: scale(1.2) rotate(8deg);
+  box-shadow: 0 6px 16px rgba(255, 107, 139, 0.4);
 }
 
-/* Features roadmap */
-.features-roadmap {
-  background: rgba(255, 255, 255, 0.9);
+/* Achievements - Sistema de badges para FOMO */
+.achievements {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
   padding: 2rem;
-  border-radius: 12px;
-  box-shadow: 0 6px 12px rgba(0,0,0,0.08);
-  margin-bottom: 2rem;
+  border-radius: 25px;
+  box-shadow: 0 8px 24px var(--coquette-shadow);
+  margin-bottom: 2.5rem;
+  border: 2px solid rgba(255, 214, 231, 0.5);
+}
+
+.achievements h3 {
+  color: var(--coquette-accent-dark);
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  font-size: 1.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.achievement-badges {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.achievement-badge {
+  background: linear-gradient(135deg, var(--coquette-lavender), var(--coquette-sky));
+  padding: 1rem 1.5rem;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  min-width: 120px;
+  border: 2px solid white;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+  transition: all 0.3s;
+}
+
+.achievement-badge:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.12);
+}
+
+.achievement-badge.locked {
+  background: rgba(230, 230, 230, 0.5);
+  color: var(--coquette-text-light);
+  opacity: 0.7;
+}
+
+.achievement-icon {
+  font-size: 1.8rem;
+}
+
+.achievement-title {
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--coquette-text);
+}
+
+.achievement-desc {
+  font-size: 0.8rem;
+  color: var(--coquette-text-light);
+  text-align: center;
+}
+
+/* Features roadmap - Actualizado */
+.features-roadmap {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 2.5rem;
+  border-radius: 25px;
+  box-shadow: 0 8px 24px var(--coquette-shadow);
+  margin-bottom: 2.5rem;
+  border: 2px solid rgba(255, 214, 231, 0.5);
+  position: relative;
+  overflow: hidden;
+}
+
+.features-roadmap::before {
+  content: '✨';
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  font-size: 8rem;
+  opacity: 0.1;
+  transform: rotate(20deg);
 }
 
 .features-roadmap h3 {
-  color: #4a5568;
+  color: var(--coquette-accent-dark);
   margin-top: 0;
-  margin-bottom: 1.5rem;
-  font-size: 1.3rem;
+  margin-bottom: 1.8rem;
+  font-size: 1.5rem;
+  text-align: center;
+  position: relative;
+  z-index: 1;
 }
 
 .features-roadmap ul {
@@ -288,59 +591,81 @@
   padding: 0;
   margin: 0;
   text-align: left;
+  position: relative;
+  z-index: 1;
 }
 
 .features-roadmap li {
-  padding: 0.5rem 0;
-  color: #718096;
+  padding: 1rem 0;
+  color: var(--coquette-text);
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 1rem;
+  border-bottom: 1px dashed var(--coquette-border);
+  transition: all 0.3s;
+}
+
+.features-roadmap li:last-child {
+  border-bottom: none;
+}
+
+.features-roadmap li:hover {
+  padding-left: 1.5rem;
+  color: var(--coquette-accent-dark);
 }
 
 .features-roadmap li::before {
-  content: '';
-  width: 8px;
-  height: 8px;
-  background: #667eea;
-  border-radius: 50%;
-  display: inline-block;
+  content: '🎀';
+  font-size: 1.2rem;
 }
 
-/* Footer */
+/* Footer coquette */
 .App-footer {
-  background: white;
-  padding: 1.5rem;
-  border-radius: 20px 20px 0 0;
-  box-shadow: 0 -4px 20px rgba(0,0,0,0.1);
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  padding: 2rem 1.5rem;
+  border-radius: 30px 30px 0 0;
+  box-shadow: 0 -8px 32px var(--coquette-shadow);
   width: 100%;
+  position: relative;
+  z-index: 1;
+  border-top: 3px solid var(--coquette-border);
 }
 
 .App-footer p {
-  margin: 0.5rem 0;
-  color: #718096;
-  font-size: 0.9rem;
+  margin: 0.75rem 0;
+  color: var(--coquette-text);
+  font-size: 0.95rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .footer-note {
   font-style: italic;
-  color: #a0aec0 !important;
-  font-size: 0.8rem !important;
+  color: var(--coquette-text-light) !important;
+  font-size: 0.85rem !important;
+  margin-top: 1.5rem !important;
+  opacity: 0.8;
 }
 
 /* Responsive */
 @media (max-width: 768px) {
+  .App-header h1 {
+    font-size: 2.2rem;
+  }
+  
   .stats {
     gap: 1rem;
   }
   
   .stat {
-    padding: 1rem 1.5rem;
+    padding: 1.2rem 1.5rem;
     min-width: 100px;
   }
   
   .stat-number {
-    font-size: 2rem;
+    font-size: 2.2rem;
   }
   
   .add-task-form {
@@ -349,13 +674,66 @@
   
   .filter-buttons {
     flex-direction: column;
+    align-items: center;
   }
   
   .filter-btn {
+    max-width: 100%;
     width: 100%;
   }
   
-  .App-header h1 {
-    font-size: 2rem;
+  .task-content {
+    gap: 1rem;
+  }
+  
+  .task-text {
+    font-size: 1.1rem;
+  }
+  
+  .fomo-banner {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .fomo-banner-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .achievement-badges {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .achievement-badge {
+    width: 100%;
+    max-width: 250px;
   }
 }
+
+/* Animación de entrada para elementos */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.stat, .fomo-banner, .add-task-form, .filter-tasks, .task-list, .achievements, .features-roadmap {
+  animation: fadeInUp 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+/* Retrasos escalonados para la animación */
+.stat:nth-child(1) { animation-delay: 0.1s; }
+.stat:nth-child(2) { animation-delay: 0.2s; }
+.stat:nth-child(3) { animation-delay: 0.3s; }
+.fomo-banner { animation-delay: 0.4s; }
+.add-task-form { animation-delay: 0.5s; }
+.filter-tasks { animation-delay: 0.6s; }
+.task-list { animation-delay: 0.7s; }
+.achievements { animation-delay: 0.8s; }
+.features-roadmap { animation-delay: 0.9s; }

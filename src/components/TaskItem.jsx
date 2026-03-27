@@ -6,8 +6,9 @@ const TaskItem = ({ task, onToggle, onDelete }) => {
           className="toggle-btn"
           onClick={() => onToggle(task.id)}
           aria-label={task.completed ? 'Marcar como pendiente' : 'Marcar como completada'}
+          title={task.completed ? 'Marcar como pendiente' : 'Marcar como completada'}
         >
-          {task.completed ? '✅' : '⬜'}
+          {task.completed ? '🎀' : '🩷'}
         </button>
         
         <span className="task-text">{task.text}</span>
@@ -17,8 +18,9 @@ const TaskItem = ({ task, onToggle, onDelete }) => {
         className="delete-btn"
         onClick={() => onDelete(task.id)}
         aria-label="Eliminar tarea"
+        title="Eliminar tarea"
       >
-        🗑️
+        💔
       </button>
     </div>
   )

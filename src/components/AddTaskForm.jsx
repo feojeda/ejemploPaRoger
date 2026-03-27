@@ -17,12 +17,18 @@ const AddTaskForm = ({ onAddTask }) => {
         type="text"
         value={input}
         onChange={(e) => setInput(e.target.value)}
-        placeholder="¿Qué necesitas hacer?"
+        placeholder="✨ ¿Qué harás hoy para ser más exclusivo?"
         className="task-input"
         maxLength="100"
+        title="Agrega una tarea para subir de nivel"
       />
-      <button type="submit" className="add-btn" disabled={!input.trim()}>
-        ➕ Agregar
+      <button 
+        type="submit" 
+        className="add-btn" 
+        disabled={!input.trim()}
+        title={!input.trim() ? 'Escribe algo primero' : '¡Agrega esta tarea exclusiva!'}
+      >
+        🎀 Agregar Tarea Exclusiva
       </button>
     </form>
   )
