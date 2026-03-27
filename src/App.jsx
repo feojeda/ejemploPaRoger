@@ -273,6 +273,7 @@ function App() {
       <footer className="App-footer">
         <p>🎀 Proyecto: ejemploPaRoger • Edición Coquette • Desplegado automáticamente con GitHub Pages</p>
         <p>✨ {onlineUsers} personas descubrieron esta app esta semana • ¡Únete antes de que sea mainstream!</p>
+        <p>🚀 <strong>CI/CD ACTIVO:</strong> Cada commit despliega automáticamente a GitHub Pages</p>
         <p className="footer-note">
           (Innovador pero no revolucionario • Diseñado para generar FOMO • Bacán pero mejorable) 
           <span style={{ display: 'block', marginTop: '0.5rem' }}>😉 ¿Ya te sientes excluido si no lo usas?</span>
